@@ -1,0 +1,9 @@
+[submodule "Assets/Submodules/Common"]
+	path = Assets/Submodules/Common
+	url = ../Common.git
+[submodule "Common_Plugins"]
+	path = Common_Plugins
+	url = ../Common_Plugins.git
+[submodule "Assets/Submodules/Common_Plugins"]
+	path = Assets/Submodules/Common_Plugins
+	url = ../Common_Plugins.git
