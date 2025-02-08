@@ -17,10 +17,13 @@ public class BoardManager : MonoBehaviour
     public Transform cellsParent;
     [Tooltip("Префаб кристалла")]
     public GameObject crystalPrefab;
+    [Header("Настройки Canvas")]
+    [Tooltip("Контейнер для анимированных объектов. Он должен находиться выше ячеек в иерархии Canvas.")]
+    public Transform animationContainer;
     
     private bool _isFillingEmptyCells = false; // Флаг, указывающий, что корутина заполнения уже работает
 
-    void Awake()
+    private void Awake()
     {
         // Инициализируем сетку ячеек, предполагая, что дочерних объектов у cellsParent ровно rows*cols
         _gridCells = new Cell[rows, cols];
@@ -218,7 +221,9 @@ public class BoardManager : MonoBehaviour
                                 Crystal movingCrystal = fromCell.CurrentCrystal;
                                 fromCell.ReleaseCrystal();
 
-                                // Анимируем перемещение кристалла в целевую ячейку
+                                // Переводим кристалл в animationContainer, чтобы он отрисовывался поверх ячеек
+                                movingCrystal.transform.SetParent(animationContainer, true);
+
                                 movingCrystal.AnimateMove(toCell.transform.position, 0.3f, () =>
                                 {
                                     toCell.AcceptCrystal(movingCrystal);
@@ -303,6 +308,10 @@ public class BoardManager : MonoBehaviour
 
             Vector3 pos1World = cell1.transform.position;
             Vector3 pos2World = cell2.transform.position;
+
+            // Переводим кристаллы во временный контейнер для анимации
+            crystal1.transform.SetParent(animationContainer, true);
+            crystal2.transform.SetParent(animationContainer, true);
 
             crystal1.AnimateMove(pos2World, 0.3f, () =>
             {
