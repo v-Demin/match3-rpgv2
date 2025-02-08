@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1020741472241661621}
+  - component: {fileID: 9038409291075344714}
   - component: {fileID: 8338299002842049333}
   m_Layer: 5
   m_Name: Cell
@@ -38,6 +39,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9038409291075344714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104082003590904988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f422a36baa6eb4b8b2b82bdfe947c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cellImage: {fileID: 721194385642976337}
+  _inactiveColor: {r: 1, g: 1, b: 1, a: 1}
+  _selectedColor: {r: 0, g: 1, b: 0, a: 1}
+  _availableColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &8338299002842049333
 MonoBehaviour:
   m_ObjectHideFlags: 0
